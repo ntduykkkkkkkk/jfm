@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "nthanhduy@1996",
+    "port": 5433,
+    "database": "jfm",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "nthanhduy@1996",
+    "database": "jfm",
+    "port": 5433,
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "nthanhduy@1996",
+    "port": 5433,
+    "database": "jfm",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

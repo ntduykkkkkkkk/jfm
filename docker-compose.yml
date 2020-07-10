@@ -1,0 +1,29 @@
+version: '3.8'
+volumes:
+  portainer_data:
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 443:8443
+      - 50000:50000
+    environment:
+      - 'JENKINS_URL=http://localhost:8080'
+    container_name: jenkins
+    volumes:
+      - D:\DN\docker\ci-stack\jenkins:/var/jenkins_home
+      - D:\DN\docker\docker.sock:/var/run/docker.sock
+      - D:\DN\docker:/usr/local/bin/docker
+  portainer:
+    image: portainer/portainer
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - D:\DN\docker\docker.sock:/var/run/docker.sock
+      - D:\DN\docker\ci-stack\portainer_data:/data
+
