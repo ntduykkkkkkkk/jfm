@@ -5,12 +5,6 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr:'10'))
     }
     stages {
-        stage('Checkout') {
-            agent { label 'docker'}
-            steps {
-                git url: 'https://gitlab.com/nthanhduy/jfm.git', branch: 'master', credentialsId: 'jenkins-ssh-key'
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Building..'
