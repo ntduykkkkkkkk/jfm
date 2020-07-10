@@ -1,9 +1,6 @@
 pipeline {
-    agent docker
-    options {
-        // Keep the 10 most recent builds
-        buildDiscarder(logRotator(numToKeepStr:'10'))
-    }
+    agent any
+
     stages {
         stage('Build') {
             steps {
