@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('HelloWorld') {
             steps {
-            echo 'Hello World'
+                sh "docker build ."
             }
         }
-        stage('git clone') {
+        stage('test') {
             steps {
-            echo "test"
+                echo "hello"
             }
         }
     }
