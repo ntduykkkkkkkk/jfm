@@ -9,8 +9,7 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: 'dist',
-        hot: true,
-        port: 3000
+        hot: true
     },
     module: {
         // load scss files by using style-loader, css-loader, sass-loader

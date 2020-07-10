@@ -16,6 +16,9 @@ const port = process.env.port || 3000
 //     origin: "http://localhost:3000"
 // }
 
+const DIST_DIR = path.join(__dirname, '../client/dist');
+const HTML_FILE = path.join(DIST_DIR, 'index.html');
+
 // app.use(cors(corsOptions));
 app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'));
@@ -23,23 +26,25 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // routes
 app.use('/api/v1', router)
-
+app.get('/', (req, res) => {
+  res.sendFile(HTML_FILE);
+ });
 //load passport strategies
-require("./config/passport/passport.js")(passport, db.Auth);
+// require("./config/passport/passport.js")(passport, db.Auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     res.status(404).send({ error: 'Not found' })
   })
 
-// For passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+// // For passport
+// app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+// app.use(passport.initialize());
+// app.use(passport.session()); // persistent login sessions
 
 // error handler
 app.use(function(err, req, res, next) {
