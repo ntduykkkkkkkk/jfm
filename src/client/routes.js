@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Redirect } from 'react-router-dom'
 import { RouteWithLayout } from './components'
-import { Main as Mainlayout } from './layouts'
+import { Main as MainLayout } from './layouts'
 
 import {
     Dashboard as DashboardView
@@ -13,11 +13,12 @@ const Routes = () => {
             <Redirect
                 exact
                 from ="/"
-                to="/dashborad"
+                to="/dashboard"
             />
-            <RouteWithLayout 
+            <RouteWithLayout
                 component={DashboardView}
-                layout={Mainlayout}
+                exact
+                layout={MainLayout}
                 path="/dashboard"
             />
         </Switch>

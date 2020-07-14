@@ -42,7 +42,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [outputDirectory]
+            cleanOnceBeforeBuildPatterns: [path.join(__dirname, outputDirectory)]
         }),
         new HtmlWebpackPlugin({
             template: './public/index.html',

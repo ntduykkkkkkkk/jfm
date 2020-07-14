@@ -1,19 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { Footer } from './components';
 
-const Main = ({children}) =>  {
-    const footerHeight = {
-        position: "absolute",
-        bottom: "0",
-        width: "100%"
-    }
+const Main = props => {
+    const { children } = props;
     return (
         <div>
-            <main className="app-content">
+            <main className='app-content'>
                 {children}
+                <Footer />
             </main>  
         </div>
     )
 }
+
+Main.propTypes = {
+    children: PropTypes.node
+  };
 
 export default Main;

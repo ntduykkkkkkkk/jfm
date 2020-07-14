@@ -1,2 +1,2 @@
-export { default as Main } from './main'
-export { default as Minimal } from './minimal'
+export { default as Main } from './Main'
+// export { default as Minimal } from './minimal'
