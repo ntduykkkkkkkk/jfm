@@ -16,7 +16,7 @@ const port = process.env.port || 3000
 //     origin: "http://localhost:3000"
 // }
 
-const DIST_DIR = path.join(__dirname, '../client/dist');
+const DIST_DIR = path.join(__dirname, '../dist');
 const HTML_FILE = path.join(DIST_DIR, 'index.html');
 
 // app.use(cors(corsOptions));
@@ -26,13 +26,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(DIST_DIR))
 
 // routes
 app.use('/api/v1', router)
-app.get('/', (req, res) => {
-  res.sendFile(HTML_FILE);
- });
+app.get('*', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+})
 //load passport strategies
 // require("./config/passport/passport.js")(passport, db.Auth);
 
@@ -64,4 +66,4 @@ app.use(function(err, req, res, next) {
 //   console.log("Drop and re-sync db.");
 // });
 
-module.exports = app;
+app.listen(port, () => console.log(`Listening on port ${port}!`));

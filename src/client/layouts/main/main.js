@@ -1,7 +1,7 @@
 import React from 'react';
 import { Footer } from './components';
 
-const Main = ({ children }) =>  {
+const Main = ({children}) =>  {
     const footerHeight = {
         position: "absolute",
         bottom: "0",
@@ -9,13 +9,9 @@ const Main = ({ children }) =>  {
     }
     return (
         <div>
-            <div className="container">
+            <main className="app-content">
                 {children}
-            </div>
-            
-            <main className={footerHeight}>
-                <Footer /> 
-            </main>
+            </main>  
         </div>
     )
 }
