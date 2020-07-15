@@ -41,9 +41,9 @@ module.exports = {
         }
     },
     plugins: [
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [path.join(__dirname, outputDirectory)]
-        }),
+        // new CleanWebpackPlugin({
+        //     cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, outputDirectory)]
+        // }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
             favicon: './public/favicon.ico'
