@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Footer } from './components';
+import { Sidebar, Footer } from './components';
 
 const Main = props => {
     const { children } = props;
     return (
-        <div>
-            <main className='app-content'>
+        <body id="page-top">
+            <div id="wrapper">
+            <main>
+                <Sidebar />
                 {children}
                 <Footer />
-            </main>  
-        </div>
+            </main>
+            </div>
+        </body>
     )
 }
 
